@@ -8,7 +8,7 @@
   },
   "types": "./src/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest"
   },
   "keywords": [
     "react",
@@ -21,5 +21,14 @@
     "ssr-compatible"
   ],
   "author": "eventsync contributors",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.27.1",
+    "@testing-library/react": "^16.3.0",
+    "babel-jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
 }

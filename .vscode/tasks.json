@@ -7,6 +7,13 @@
       "command": "npm pack",
       "group": "build",
       "problemMatcher": []
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "npx jest --env=jsdom --testEnvironment=jsdom",
+      "group": "test",
+      "problemMatcher": []
     }
   ]
 }
