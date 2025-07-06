@@ -13,6 +13,15 @@ jobs:
       github.event_name == 'push' &&
       github.ref == 'refs/heads/main'
     steps:
+      - name: Log event context
+        run: |
+          echo "event_name: ${{ github.event_name }}"
+          echo "ref: ${{ github.ref }}"
+          echo "repository: ${{ github.repository }}"
+          echo "actor: ${{ github.actor }}"
+          echo "sha: ${{ github.sha }}"
+          echo "workflow: ${{ github.workflow }}"
+          echo "event: $(cat $GITHUB_EVENT_PATH)"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -24,8 +33,14 @@ jobs:
         run: |
           echo "current_version=$(npm pkg get version | tr -d '\"')" >> $GITHUB_OUTPUT
           echo "published_version=$(npm view ${{ github.event.repository.name }} version || echo '0.0.0')" >> $GITHUB_OUTPUT
+          echo "Current version: $(npm pkg get version | tr -d '\"')"
+          echo "Published version: $(npm view ${{ github.event.repository.name }} version || echo '0.0.0')"
       - name: Build
         run: npm run build
+      - name: Log version check outputs
+        run: |
+          echo "current_version: ${{ steps.version_check.outputs.current_version }}"
+          echo "published_version: ${{ steps.version_check.outputs.published_version }}"
       - name: Publish to npm (dist only)
         if: steps.version_check.outputs.current_version != steps.version_check.outputs.published_version
         run: npm publish ./dist --access public
