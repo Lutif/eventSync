@@ -1,0 +1,25 @@
+{
+  "name": "eventsync",
+  "version": "1.0.0",
+  "description": "React-compatible global state management via DOM event streams. No context, no prop-drilling, no re-render headaches.",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "global state",
+    "state management",
+    "event",
+    "custom event",
+    "context alternative",
+    "dom",
+    "ssr-compatible"
+  ],
+  "author": "eventsync contributors",
+  "license": "MIT"
+}
