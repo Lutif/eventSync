@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'package.json'
-      - 'src/**'
-      - '.github/workflows/publish.yml'
 
 jobs:
   publish:
