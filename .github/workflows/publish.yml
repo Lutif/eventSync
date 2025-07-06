@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   publish:
@@ -21,7 +22,7 @@ jobs:
       - name: Check version change
         id: version_check
         run: |
-          echo "current_version=$(npm pkg get version | tr -d '"')" >> $GITHUB_OUTPUT
+          echo "current_version=$(npm pkg get version | tr -d '\"')" >> $GITHUB_OUTPUT
           echo "published_version=$(npm view ${{ github.event.repository.name }} version || echo '0.0.0')" >> $GITHUB_OUTPUT
       - name: Build
         run: npm run build
