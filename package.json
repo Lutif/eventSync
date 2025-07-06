@@ -8,7 +8,10 @@
   },
   "types": "./src/index.d.ts",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx jest",
+    "docs:deploy": "npx gh-pages -d docs",
+    "docs:open": "open https://lutif.github.io/eventSync/",
+    "docs:deploy:ci": "npm run docs:deploy"
   },
   "keywords": [
     "react",
@@ -21,8 +24,10 @@
     "ssr-compatible"
   ],
   "author": "eventsync contributors",
+  "homepage": "https://lutif.github.io/eventSync/",
   "license": "MIT",
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "@babel/cli": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
