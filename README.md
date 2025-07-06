@@ -4,7 +4,7 @@
 
 ---
 
-**Homepage:** https://github.com/lutifali/eventsync
+**Homepage:** https://lutif.github.io/eventSync/
 
 ---
 
