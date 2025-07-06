@@ -1,4 +1,14 @@
+
 # eventsync
+
+<p align="left">
+  <a href="https://www.npmjs.com/package/react-eventsync">
+    <img src="https://img.shields.io/npm/dm/react-eventsync.svg?style=flat-square" alt="npm downloads" />
+  </a>
+  <a href="https://www.npmjs.com/package/react-eventsync">
+    <img src="https://img.shields.io/npm/v/react-eventsync.svg?style=flat-square" alt="npm version" />
+  </a>
+</p>
 
 > React-compatible global state management via DOM event streams. No context, no prop-drilling, no re-render headaches.
 
