@@ -34,21 +34,22 @@ initGlobalState({
   counter: 0
 });
 
-// Subscribe to global state fields
-const [{ user_name, counter }, { setUser_name, setCounter }] = useGlobalState([
+// --- Single value subscription ---
+const [counter, setCounter] = useGlobalState('counter');
+console.log(counter); // 0
+setCounter(1);
+
+// --- Multiple values subscription ---
+const [{ user_name, counter: c }, { setUser_name, setCounter }] = useGlobalState([
   'user.name',
   'counter'
 ]);
-
-// Read values
-console.log(user_name, counter);
-
-// Update values
-setUser_name('Alice');
-setCounter(42);
+console.log(user_name, c);
+setUser_name('Bob');
+setCounter(2);
 
 // Or programmatically update global state anywhere
-setGlobalState('user.name', 'Bob');
+setGlobalState('user.name', 'Charlie');
 ```
 
 ---
@@ -65,7 +66,7 @@ setGlobalState('user.name', 'Bob');
 ### `setGlobalState(path: string, value: any)`
 
 - Updates global state at the given path
-- Triggers a DOM CustomEvent (`__eventsync_update__`) to notify subscribers
+- Notifies all subscribed components to update if their state has changed
 
 ---
 
