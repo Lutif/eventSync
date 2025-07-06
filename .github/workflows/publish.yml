@@ -1,0 +1,36 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'package.json'
+      - 'src/**'
+      - '.github/workflows/publish.yml'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org/'
+      - run: npm ci
+      - name: Check version change
+        id: version_check
+        run: |
+          echo "current_version=$(npm pkg get version | tr -d '"')" >> $GITHUB_OUTPUT
+          echo "published_version=$(npm view ${{ github.event.repository.name }} version || echo '0.0.0')" >> $GITHUB_OUTPUT
+      - name: Build
+        run: npm run build
+      - name: Publish to npm
+        if: steps.version_check.outputs.current_version != steps.version_check.outputs.published_version
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

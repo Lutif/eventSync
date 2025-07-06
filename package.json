@@ -1,6 +1,6 @@
 {
-  "name": "eventsync",
-  "version": "1.0.0",
+  "name": "react-eventsync",
+  "version": "0.1.0",
   "description": "React-compatible global state management via DOM event streams. No context, no prop-drilling, no re-render headaches.",
   "main": "src/index.js",
   "exports": {
@@ -23,12 +23,14 @@
   "author": "eventsync contributors",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.27.1",
     "@testing-library/react": "^16.3.0",
     "babel-jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "terser": "^5.43.1"
   }
 }
