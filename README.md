@@ -26,7 +26,13 @@ npm install eventsync
 ## Usage
 
 ```js
-import { useGlobalState, setGlobalState } from 'eventsync';
+import { useGlobalState, setGlobalState, initGlobalState } from 'eventsync';
+
+// (Optional) Initialize global state at app startup
+initGlobalState({
+  user: { name: 'Alice' },
+  counter: 0
+});
 
 // Subscribe to global state fields
 const [{ user_name, counter }, { setUser_name, setCounter }] = useGlobalState([
