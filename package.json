@@ -11,7 +11,8 @@
     "test": "npx jest",
     "docs:deploy": "npx gh-pages -d docs",
     "docs:open": "open https://lutif.github.io/eventSync/",
-    "docs:deploy:ci": "npm run docs:deploy"
+    "docs:deploy:ci": "npm run docs:deploy",
+    "build": "node ./build.js"
   },
   "keywords": [
     "react",

@@ -29,8 +29,8 @@ jobs:
           echo "published_version=$(npm view ${{ github.event.repository.name }} version || echo '0.0.0')" >> $GITHUB_OUTPUT
       - name: Build
         run: npm run build
-      - name: Publish to npm
+      - name: Publish to npm (dist only)
         if: steps.version_check.outputs.current_version != steps.version_check.outputs.published_version
-        run: npm publish --access public
+        run: npm publish ./dist --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
