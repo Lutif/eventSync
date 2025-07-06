@@ -1,5 +1,5 @@
 
-# eventsync Documentation
+# eventsync 
 
 > **eventsync** is a React-compatible global state management library powered by DOM event streams. It solves the React Context re-render problem and makes global state simple, efficient, and precise.
 
