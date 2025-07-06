@@ -4,6 +4,10 @@
 
 ---
 
+**Homepage:** https://github.com/lutifali/eventsync
+
+---
+
 ## Features
 
 - **Global state** shared across your React app, powered by DOM CustomEvents

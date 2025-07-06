@@ -33,3 +33,9 @@ fs.writeFileSync(
   path.join(distDir, 'package.json'),
   JSON.stringify(minimalPkg, null, 2)
 );
+
+// Copy README.md to dist
+fs.copyFileSync(
+  path.join(__dirname, 'README.md'),
+  path.join(distDir, 'README.md')
+);
